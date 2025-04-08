@@ -11,7 +11,7 @@ function wp_ai_essential_option_init() {
 	);
 
 	add_settings_field(
-		'wp_ai_webhook_url',
+		'webhook_url',
 		__('Webhook URL', 'wp-ai-essential'),
 		'wp_ai_essential_option_callback',
 		'wp-ai-essential',
@@ -27,7 +27,7 @@ function wp_ai_essential_option_init() {
 function wp_ai_essential_option_callback() {
 	$value = esc_attr(get_option('webhook_url'));
 	?>
-    <input type="text" name="webhook_url" id="wp_ai_webhook_url" value="<?php echo $value; ?>" class="regular-text">
+    <input type="url" name="webhook_url" id="wp_ai_webhook_url" value="<?php echo $value; ?>" class="regular-text">
 	<?php
 }
 
