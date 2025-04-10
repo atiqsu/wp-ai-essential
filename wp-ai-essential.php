@@ -19,3 +19,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 include_once 'includes/admin-menu.php';
 
 include_once 'includes/admin-settings.php';
+
+include_once 'includes/res-api.php';
