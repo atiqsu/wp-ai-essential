@@ -40,7 +40,7 @@ function wp_ei_essential_get_cpt_names() {
 }
 
 function wp_ei_essential_get_post( $request ) {
-	$cpt = $request->get_param( 'cpt' );
+	$cpt = sanitize_text_field($request->get_param( 'cpt' ));
 	$id  = (int) $request->get_param( 'id' );
 
 	// Validate CPT exists (optional, but good practice)
@@ -57,10 +57,11 @@ function wp_ei_essential_get_post( $request ) {
 
 	// Success response
 	return rest_ensure_response( array(
-		'ID'      => $post->ID,
-		'title'   => get_the_title( $post ),
-		'content' => apply_filters( 'the_content', $post->post_content ),
-		'type'    => $post->post_type,
+//		'ID'      => $post->ID,
+//		'title'   => get_the_title( $post ),
+//		'type'    => $post->post_type,
+//		'content' => apply_filters( 'the_content', $post->post_content ),
+		 $post,
 	) );
 }
 
