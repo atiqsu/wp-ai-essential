@@ -52,16 +52,27 @@ function wp_ei_essential_get_post( $request ) {
 
 	// Validate post exists and matches post type
 	if ( ! $post || $post->post_type !== $cpt ) {
-		return new WP_Error( 'no_post', 'Post not found or mismatched CPT', array( 'status' => 404 ) );
+		$response = rest_ensure_response( array(
+			'error'   => 'no_post',
+			'message' => 'Post not found or mismatched CPT',
+			'data'    => array(
+				'status' => 404,
+			),
+		) );
+
+		$response->set_status( 404 );
+		return $response;
+
 	}
 
 	// Success response
 	return rest_ensure_response( array(
-//		'ID'      => $post->ID,
-//		'title'   => get_the_title( $post ),
-//		'type'    => $post->post_type,
-//		'content' => apply_filters( 'the_content', $post->post_content ),
-		 $post,
+		'ID'      => $post->ID,
+		'title'   => get_the_title( $post ),
+		'slug'    => $post->post_name,
+		'type'    => $post->post_type,
+		'content' => apply_filters( 'the_content', $post->post_content ),
+//		'content' =>  $post->post_content ,
 	) );
 }
 
