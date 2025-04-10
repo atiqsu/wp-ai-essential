@@ -11,15 +11,16 @@ function wp_ai_essential() {
 		'dashicons-admin-generic',
 		99
 	);
-//	add_submenu_page(
-//		'wp-ai-essential',
-//		'Sub menu',
-//		'Sub menu',
-//		'manage_options',
-//		'wp-ai-essential-sub-menu',
-//		'wp_ai_essential_page_frontend_submenu'
-//
-//	);
+
+	add_submenu_page(
+		'wp-ai-essential',
+		'Settings',
+		'Settings',
+		'manage_options',
+		'wp-ai-essential_settings',
+		'wp_ai_essential_page_frontend'
+
+	);
 }
 
 add_action( 'admin_menu', 'wp_ai_essential' );
