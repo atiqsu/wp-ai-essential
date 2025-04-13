@@ -27,6 +27,10 @@ function wp_ai_essential_register_cpt_endpoint() {
 			),
 		)
 	);
+    register_rest_route('wai/v2', '/agent-chat', array(
+        'methods'  => 'GET',
+        'callback' => 'wp_ei_essential_get_message',
+    ));
 
 }
 add_action('rest_api_init', 'wp_ai_essential_register_cpt_endpoint');
@@ -77,6 +81,12 @@ function wp_ei_essential_get_post( $request ) {
 		'content' => apply_filters( 'the_content', $post->post_content ),
 //		'content' =>  $post->post_content ,
 	) );
+}
+
+function wp_ei_essential_get_message()
+{
+    $message = "Hello Buddy How are you?";
+    return $message;
 }
 
 
