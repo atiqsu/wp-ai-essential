@@ -21,5 +21,8 @@ include_once 'includes/admin-menu.php';
 include_once 'includes/admin-settings.php';
 
 include_once 'includes/rest-api.php';
+include_once 'includes/db.php' ;
 
-include "includes/db.php";
+
+// plugin activation hook
+register_activation_hook(__FILE__, 'wp_ai_essential_db');

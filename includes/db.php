@@ -1,7 +1,6 @@
 <?php
 
-// Make sure the activation hook is registered properly with your main plugin file
-register_activation_hook(__FILE__, 'wp_ai_essential_db');
+
 
 function wp_ai_essential_db() {
     global $wpdb;
