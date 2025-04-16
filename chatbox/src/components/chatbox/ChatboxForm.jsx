@@ -227,7 +227,7 @@ const ChatboxForm = ({ input, setInput, handleSubmit, handleImage, image, fileIn
 
                 <button
                     type="submit"
-                    className={`w-10 h-10 flex items-center justify-center rounded-full transition-all ${
+                    className={`w-10 h-10 flex items-center justify-center rounded-full transition-all  hidden${
                         (!input.trim() && !image && !audioBlob) || isRecording
                             ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
                             : 'bg-blue-600 text-white shadow-md hover:bg-blue-700'
