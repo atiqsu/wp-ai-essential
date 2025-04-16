@@ -1,7 +1,5 @@
 <?php
 
-
-
 function wp_ai_essential_db() {
     global $wpdb;
     $charset_collate = $wpdb->get_charset_collate();
