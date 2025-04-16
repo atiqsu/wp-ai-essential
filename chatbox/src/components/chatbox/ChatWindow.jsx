@@ -84,8 +84,6 @@ const ChatWindow = ({showChatWindow}) => {
 
         setImage(file);
     };
-
-    console.log(messages);
     return (
         <div>
             <div
@@ -95,13 +93,13 @@ const ChatWindow = ({showChatWindow}) => {
                 style={{ boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)' }}
             >
                 {/* Header */}
-                <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-3 px-4 flex items-center justify-between">
+                <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-3 px-4 flex items-center justify-between z-[99]">
                     <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
                             <span className="text-xl font-bold">AI</span>
                         </div>
                         <div>
-                            <h1 className="font-semibold">AI Assistant</h1>
+                            <h1 className="font-semibold text-white text-base">AI Assistant</h1>
                             <div className="text-xs flex items-center">
                                 <span className="w-2 h-2 bg-green-400 rounded-full inline-block mr-2"></span>
                                 Online

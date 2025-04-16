@@ -36,14 +36,13 @@ register_activation_hook(__FILE__, 'wp_ai_essential_db');
 // echo '<pre>';
 // printf(plugin_dir_url( __FILE__ ));
 // echo '</pre>';
-
 function wp_ai_essential_chatbox()
 {
     $dir = plugin_dir_url(__FILE__);
 
     wp_enqueue_style(
         'wp-ai-essential-react-style',
-        $dir . 'build/assets/index-BdpZjVRh.css',
+        $dir . 'build/assets/index.css',
         false,
         '1.0',
         'all'
@@ -51,17 +50,39 @@ function wp_ai_essential_chatbox()
 
     wp_enqueue_script(
         'wp-ai-essential-react-script',
-        $dir . 'build/assets/index-Bs9L4ns3.js',
-        false,
+        $dir . 'build/assets/index.js',
+        array('plugin-index'),
         '1.0',
         true
     );
 
-    ?>
-    <div id="root"></div>
-    <?php
+    $supported_settings = get_option('wp_ai_essential_chatbox_support');
+//
+//    wp_localize_script(
+//        'wp-ai-essential-react-script',
+//        'supported_settings',
+//        $supported_settings
+//    );
+
+    echo '<div id="root"></div>';
 }
 
 add_action('wp_footer', 'wp_ai_essential_chatbox');
 
 //add_shortcode('chatbox', 'wp_ai_essential_chatbox');
+
+
+add_action('wp_enqueue_scripts', 'wp_ai_essential_assets');
+
+
+function wp_ai_essential_assets(){
+    $dir = plugin_dir_url(__FILE__);
+    $supported_settings = get_option('wp_ai_essential_chatbox_support');
+    wp_enqueue_script('plugin-index', $dir . 'assets/js/index.js', array() ,  '1.0.0', true );
+        wp_localize_script(
+        'plugin-index',
+        'supported_settings',
+        $supported_settings
+    );
+
+}

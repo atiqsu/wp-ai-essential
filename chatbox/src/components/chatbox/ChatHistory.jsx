@@ -44,7 +44,7 @@ const ChatHistory = ({ messages, loading }) => {
                                             : 'bg-white text-gray-800 rounded-bl-none border border-gray-100'
                                     }`}
                                 >
-                                    {msg.text && <p className="text-sm">{msg.text}</p>}
+                                    {msg.text && <p className="text-sm max-w-[200px] w-full">{msg.text}</p>}
 
                                     {msg.file && (
                                         <div className="mt-2 relative">
@@ -77,7 +77,7 @@ const ChatHistory = ({ messages, loading }) => {
                             </div>
 
                             {isUser && (
-                                <div className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 flex-shrink-0 mb-1">
+                                <div className="w-8 h-8 rounded-full bg-gray-200 flex text-base items-center justify-center text-gray-500 flex-shrink-0 mb-1">
                                     U
                                 </div>
                             )}
