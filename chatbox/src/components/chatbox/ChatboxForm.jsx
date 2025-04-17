@@ -6,7 +6,7 @@ import { FaRegSmile } from "react-icons/fa";
 import { useState, useRef, useEffect } from "react";
 import emojiList from "../../assets/emoji.js";
 
-const ChatboxForm = ({ input, setInput, handleSubmit, handleImage, image, fileInputRef }) => {
+const ChatboxForm = ({ input, setInput, handleSubmit, handleImage, image, fileInputRef, setImage }) => {
     const [isRecording, setIsRecording] = useState(false);
     const [audioBlob, setAudioBlob] = useState(null);
     const mediaRecorderRef = useRef(null);
