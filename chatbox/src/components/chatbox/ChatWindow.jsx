@@ -33,11 +33,11 @@ const ChatWindow = () => {
         setMessages([firstMessage]);
     }, []);
 
-    const uploadImageToWordPress = async (file) => {
+    const uploadMediaToWordPress = async (file) => {
         const formData = new FormData();
         formData.append("file", file);
         try {
-            const res = await fetch("http://development.local/wp-json/wai/v2/upload-image", {
+            const res = await fetch("http://development.local/wp-json/wai/v2/upload-media", {
                 method: "POST",
                 body: formData
             });
@@ -56,40 +56,6 @@ const ChatWindow = () => {
         }
     };
 
-
-
-    // const handleSubmit = (e, audioBlob = null) => {
-    //     e.preventDefault();
-    //     if (!input.trim() && !image && !audioBlob) return;
-    //
-    //     const newMessages = [...messages, {
-    //         text: input,
-    //         type: 'user',
-    //         time: new Date(),
-    //         file: image,
-    //         audioFile: audioBlob
-    //     }];
-    //     setMessages(newMessages);
-    //     setInput('');
-    //     setImage(null);
-    //     setLoading(true);
-    //
-    //     if (fileInputRef.current) {
-    //         fileInputRef.current.value = null;
-    //     }
-    //
-    //     setTimeout(() => {
-    //         setMessages([...newMessages, {
-    //             text: reply,
-    //             type: 'admin',
-    //             time: new Date(),
-    //             file: '',
-    //             audioFile: null
-    //         }]);
-    //         setLoading(false);
-    //     }, 2000);
-    // };
-
     const handleSubmit = async (e, audioBlob = null) => {
         e.preventDefault();
         if (!input.trim() && !image && !audioBlob) return;
@@ -97,14 +63,18 @@ const ChatWindow = () => {
         let uploadedImageUrl = null;
 
         if (image) {
-            uploadedImageUrl = await uploadImageToWordPress(image);
+            uploadedImageUrl = await uploadMediaToWordPress(image);
         }
+
+
+
+        // console.log("audio file is :", audioBlob);
 
         const newMessages = [...messages, {
             text: input,
             type: 'user',
             time: new Date(),
-            file: uploadedImageUrl ? uploadedImageUrl : image, // URL path
+            file: uploadedImageUrl ? uploadedImageUrl : image,
             audioFile: audioBlob
         }];
 

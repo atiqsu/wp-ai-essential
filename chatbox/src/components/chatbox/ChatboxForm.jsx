@@ -145,15 +145,15 @@ const ChatboxForm = ({ input, setInput, handleSubmit, handleImage, image, fileIn
             <form className="flex items-center gap-2" onSubmit={handleFormSubmit}>
                 <div className="flex items-center bg-gray-100 rounded-full flex-grow px-3 py-1 border border-transparent focus-within:border-gray-300 transition-all relative">
 
-                    {formFieldSupported?.active_voice === '1' && (
-                        <button
-                            type="button"
-                            onClick={isRecording ? stopRecording : startRecording}
-                            className={`${isRecording ? 'text-red-500' : 'text-gray-500'} p-2 hover:bg-gray-200 rounded-full transition-all`}
-                        >
-                            {isRecording ? <FaStop size={16} /> : <BsFillMicFill  size={18} />}
-                        </button>
-                    )}
+                    {/*{formFieldSupported?.active_voice === '1' && (*/}
+                    <button
+                        type="button"
+                        onClick={isRecording ? stopRecording : startRecording}
+                        className={`${isRecording ? 'text-red-500' : 'text-gray-500'} p-2 hover:bg-gray-200 rounded-full transition-all`}
+                    >
+                        {isRecording ? <FaStop size={16} /> : <BsFillMicFill  size={18} />}
+                    </button>
+                    {/*// )}*/}
 
                     <input
                         className="flex-grow bg-transparent p-2 outline-none placeholder-gray-500 text-gray-800 focus:border-none w-full text-base"
@@ -163,49 +163,49 @@ const ChatboxForm = ({ input, setInput, handleSubmit, handleImage, image, fileIn
                         disabled={isRecording}
                     />
 
-                    {formFieldSupported?.active_image === '1' && (
+                    {/*{formFieldSupported?.active_image === '1' && (*/}
+                    <button
+                        type="button"
+                        onClick={() => fileInputRef.current.click()}
+                        className="text-gray-500 p-2 hover:bg-gray-200 rounded-full transition-all"
+                        disabled={isRecording}
+                    >
+                        <LuImage size={20} />
+                    </button>
+                    {/*)}*/}
+
+                    {/*{formFieldSupported?.active_emoji === '1' && (*/}
+                    <div className="relative">
                         <button
                             type="button"
-                            onClick={() => fileInputRef.current.click()}
-                            className="text-gray-500 p-2 hover:bg-gray-200 rounded-full transition-all"
+                            className={`text-gray-500 p-2 hover:bg-gray-200 rounded-full transition-all ${showEmojiPicker ? 'bg-gray-200' : ''}`}
                             disabled={isRecording}
+                            onClick={() => setShowEmojiPicker(!showEmojiPicker)}
                         >
-                            <LuImage size={20} />
+                            <FaRegSmile size={18} />
                         </button>
-                    )}
 
-                    {formFieldSupported?.active_emoji === '1' && (
-                        <div className="relative">
-                            <button
-                                type="button"
-                                className={`text-gray-500 p-2 hover:bg-gray-200 rounded-full transition-all ${showEmojiPicker ? 'bg-gray-200' : ''}`}
-                                disabled={isRecording}
-                                onClick={() => setShowEmojiPicker(!showEmojiPicker)}
+                        {showEmojiPicker && (
+                            <div
+                                ref={emojiPickerRef}
+                                className="absolute bottom-12 right-0 bg-white border border-gray-200 rounded-lg shadow-lg p-2 z-10 w-64"
                             >
-                                <FaRegSmile size={18} />
-                            </button>
-
-                            {showEmojiPicker && (
-                                <div
-                                    ref={emojiPickerRef}
-                                    className="absolute bottom-12 right-0 bg-white border border-gray-200 rounded-lg shadow-lg p-2 z-10 w-64"
-                                >
-                                    <div className="grid grid-cols-8 gap-1">
-                                        {emojiList.map((emoji, index) => (
-                                            <button
-                                                key={index}
-                                                type="button"
-                                                className="hover:bg-gray-100 p-1 rounded transition-colors w-8 h-8 flex items-center justify-center text-lg"
-                                                onClick={() => addEmoji(emoji)}
-                                            >
-                                                {emoji}
-                                            </button>
-                                        ))}
-                                    </div>
+                                <div className="grid grid-cols-8 gap-1">
+                                    {emojiList.map((emoji, index) => (
+                                        <button
+                                            key={index}
+                                            type="button"
+                                            className="hover:bg-gray-100 p-1 rounded transition-colors w-8 h-8 flex items-center justify-center text-lg"
+                                            onClick={() => addEmoji(emoji)}
+                                        >
+                                            {emoji}
+                                        </button>
+                                    ))}
                                 </div>
-                            )}
-                        </div>
-                    )}
+                            </div>
+                        )}
+                    </div>
+                    {/*)}*/}
                 </div>
 
                 <input

@@ -35,10 +35,10 @@ function wp_ai_essential_register_cpt_endpoint()
 
     register_rest_route(
         'wai/v2',
-        '/upload-image',
+        '/upload-media',
         array(
             'methods' => 'POST',
-            'callback' => 'wp_ei_essential_upload_image',
+            'callback' => 'wp_ei_essential_upload_media',
             'premission_callback' => '__return_true',
         )
     );
@@ -105,7 +105,7 @@ function wp_ei_essential_get_message()
 }
 
 
-function wp_ei_essential_upload_image($request)
+function wp_ei_essential_upload_media($request)
 {
     $files = $request->get_file_params();
 
@@ -154,3 +154,4 @@ function wp_ei_essential_upload_image($request)
         'id'  => $attach_id
     ], 200);
 }
+
