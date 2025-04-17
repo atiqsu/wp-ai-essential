@@ -1,5 +1,5 @@
 import { IoIosSend } from "react-icons/io";
-import { IoMdImage } from "react-icons/io";
+import { LuImage } from "react-icons/lu";
 import { BsFillMicFill } from "react-icons/bs";
 import { FaStop } from "react-icons/fa";
 import { FaRegSmile } from "react-icons/fa";
@@ -94,6 +94,10 @@ const ChatboxForm = ({ input, setInput, handleSubmit, handleImage, image, fileIn
         setInput(prev => prev + emoji);
     };
 
+
+    /*For Development form support has been hide */
+
+
     return (
         <div className="flex flex-col p-3 border-t border-gray-200 bg-white">
             {(image || audioBlob) && (
@@ -147,7 +151,7 @@ const ChatboxForm = ({ input, setInput, handleSubmit, handleImage, image, fileIn
                             onClick={isRecording ? stopRecording : startRecording}
                             className={`${isRecording ? 'text-red-500' : 'text-gray-500'} p-2 hover:bg-gray-200 rounded-full transition-all`}
                         >
-                            {isRecording ? <FaStop size={16} /> : <BsFillMicFill size={18} />}
+                            {isRecording ? <FaStop size={16} /> : <BsFillMicFill  size={18} />}
                         </button>
                     )}
 
@@ -166,7 +170,7 @@ const ChatboxForm = ({ input, setInput, handleSubmit, handleImage, image, fileIn
                             className="text-gray-500 p-2 hover:bg-gray-200 rounded-full transition-all"
                             disabled={isRecording}
                         >
-                            <IoMdImage size={20} />
+                            <LuImage size={20} />
                         </button>
                     )}
 

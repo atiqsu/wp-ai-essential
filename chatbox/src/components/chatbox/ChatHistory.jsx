@@ -49,7 +49,7 @@ const ChatHistory = ({ messages, loading }) => {
                                     {msg.file && (
                                         <div className="mt-2 relative">
                                             <img
-                                                src={URL.createObjectURL(msg.file)}
+                                                src={typeof msg.file === 'string' ? msg.file : URL.createObjectURL(msg.file)}
                                                 alt="Uploaded"
                                                 className="rounded-lg max-w-full object-contain max-h-40"
                                             />

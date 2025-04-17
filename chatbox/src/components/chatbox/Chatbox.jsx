@@ -14,7 +14,7 @@ const Chatbox = () => {
         <div>
             {/*for development button onclick event disable // old hidden*/}
             <div className={showChat ? 'block' : 'hidden'}>
-                <ChatWindow showChatWindow={showChatWindow}/>
+                <ChatWindow showChatWindow />
             </div>
             <button
                 className="h-12 w-12 bg-gradient-to-r from-blue-600 to-blue-800  flex items-center justify-center rounded-full cursor-pointer fixed bottom-4 right-4 text-[20px] text-white"
