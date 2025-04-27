@@ -17,7 +17,7 @@ function wp_ai_essential() {
 		'Settings',
 		'Settings',
 		'manage_options',
-		'wp-ai-essential_settings',
+		'wp-ai-essential-settings',
 		'wp_ai_essential_page_frontend'
 
 	);
