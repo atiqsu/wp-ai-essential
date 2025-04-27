@@ -29,6 +29,12 @@ include_once 'includes/rest-api.php';
 
 
 /**
+ * TODO: (Ali Hasan) check the below codes and nicely organige it
+ * 
+ */
+
+
+/**
  * Add the chatbox div to the footer.
  */
 function add_wai_chatbox_to_footer() {
