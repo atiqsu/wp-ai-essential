@@ -87,6 +87,12 @@ const ChatWindow = () => {
             fileInputRef.current.value = null;
         }
 
+        // TODO: (Ali Hasan) first of all always put todo where later need to work......
+        // TODO: (Ali Hasan) Guessing here is the actual api call to the backend OR to directly the AI running service uri
+        // possible api uri = http://127.0.0.1:5000/chat (our python project - robin bhai has it)- this is the direct approach to get the reply from the AI
+        // Another way to register another api endpoint to the backend and then from that function call the AI, this will be benificiary if we need API KEY for AI call like chatGPT
+
+        // run the python project and then go here with the direct api call approach
         setTimeout(() => {
             setMessages([...newMessages, {
                 text: reply,
