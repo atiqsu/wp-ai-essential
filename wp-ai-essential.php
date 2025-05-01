@@ -41,6 +41,6 @@ add_action('wp_footer', 'add_wai_chatbox_to_footer');
 add_action('wp_enqueue_scripts', 'enqueue_wai_chatbox_scripts');
 
 function enqueue_wai_chatbox_scripts() {
-    wp_enqueue_script('wai-chatbox-script', plugin_dir_url(__FILE__) . 'assets/js/index-BIRQhUVZ.js', array(), '1.0.0', true);
-    wp_enqueue_style('wai-chatbox-style', plugin_dir_url(__FILE__) . 'assets/css/index-D1JBE9HO.css', array(), '1.0.0');
+    wp_enqueue_script('wai-chatbox-script', plugin_dir_url(__FILE__) . 'build/index.js', array(), '1.0.0.'.time(), true);
+    wp_enqueue_style('wai-chatbox-style', plugin_dir_url(__FILE__) . 'build/index.css', array(), '1.0.0.'.time());
 }

@@ -9,6 +9,11 @@ function wp_ai_essential_register_cpt_endpoint() {
 		'callback' => 'wp_ei_essential_get_cpt_names',
 	));
 
+	register_rest_route('wai/v2', '/agent-chat', array(
+		'methods'  => 'GET',
+		'callback' => 'wp_ei_essential_get_agent_chat',
+	));
+
 	register_rest_route(
 		'wai/v2',
 		'/(?P<cpt>[a-zA-Z0-9_-]+)/(?P<id>\d+)',
@@ -77,6 +82,11 @@ function wp_ei_essential_get_post( $request ) {
 		'content' => apply_filters( 'the_content', $post->post_content ),
 //		'content' =>  $post->post_content ,
 	) );
+}
+
+function wp_ei_essential_get_agent_chat() {
+
+	return 'Hello, how can I help you today?';
 }
 
 

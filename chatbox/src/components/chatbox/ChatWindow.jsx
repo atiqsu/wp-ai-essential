@@ -13,9 +13,11 @@ const ChatWindow = () => {
     const [isMinimized, setIsMinimized] = useState(false);
     const fileInputRef = useRef(null);
 
+    const domain = 'http://boom_wp.test';
+
     // Fetch the initial reply from the backend
     useEffect(() => {
-        fetch('http://development.local/wp-json/wai/v2/agent-chat')
+        fetch(`${domain}/wp-json/wai/v2/agent-chat`)
             .then(res => res.json())
             .then(json => setReply(json))
             .catch(err => console.error("Error fetching data:", err));
@@ -37,7 +39,7 @@ const ChatWindow = () => {
         const formData = new FormData();
         formData.append("file", file);
         try {
-            const res = await fetch("http://development.local/wp-json/wai/v2/upload-media", {
+            const res = await fetch(`${domain}/wp-json/wai/v2/upload-media`, {
                 method: "POST",
                 body: formData
             });
@@ -94,15 +96,16 @@ const ChatWindow = () => {
 
         // run the python project and then go here with the direct api call approach
         setTimeout(() => {
+
             setMessages([...newMessages, {
-                text: reply,
+                text: 'Yes, we have more than 50 different types of running shoes in our store. Please let me know which size you are looking for?',
                 type: 'admin',
                 time: new Date(),
                 file: '',
                 audioFile: null
             }]);
             setLoading(false);
-        }, 2000);
+        }, 5000);
     };
 
     const handleImage = (e) => {
@@ -130,7 +133,7 @@ const ChatWindow = () => {
         <div>
             <div
                 className={`rounded-3xl shadow-2xl border border-gray-200 fixed ${
-                    isMinimized ? 'h-16 bottom-20' : 'h-[500px]'
+                    isMinimized ? 'h-16 bottom-20' : 'h-[600px]'
                 } right-4 bottom-20 w-[350px] overflow-hidden flex flex-col justify-between transition-all duration-300 ease-in-out`}
                 style={{ boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)' }}
             >
